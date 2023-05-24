@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            walkSpeed = 10f;
+            walkSpeed = 4f;
             playerAnim.SetBool("sprint", false);
 
         }
