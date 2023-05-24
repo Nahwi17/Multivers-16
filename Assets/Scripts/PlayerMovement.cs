@@ -98,48 +98,6 @@ public class PlayerMovement : MonoBehaviour
 }
 
 
-
-// using UnityEngine;
-// using Cinemachine;
-
-// public class PlayerMovement : MonoBehaviour
-// {
-//     public float moveSpeed = 5f;
-
-//     private Rigidbody rb;
-//     private CinemachineVirtualCamera virtualCamera;
-
-//     private void Start()
-//     {
-//         rb = GetComponent<Rigidbody>();
-//         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-//     }
-
-//     private void Update()
-//     {
-//         float moveX = Input.GetAxis("Horizontal");
-//         float moveZ = Input.GetAxis("Vertical");
-
-//         Vector3 cameraForward = virtualCamera.transform.forward;
-//         Vector3 cameraRight = virtualCamera.transform.right;
-
-//         cameraForward.y = 0f;
-//         cameraRight.y = 0f;
-//         cameraForward.Normalize();
-//         cameraRight.Normalize();
-
-//         Vector3 movement = (cameraForward * moveZ + cameraRight * moveX) * moveSpeed * Time.deltaTime;
-//         rb.MovePosition(transform.position + movement);
-
-//         if (movement.magnitude > 0f)
-//         {
-//             Quaternion toRotation = Quaternion.LookRotation(cameraForward);
-//             rb.MoveRotation(Quaternion.Lerp(rb.rotation, toRotation, 0.15f));
-//         }
-//     }
-// }
-
-
 //   if (Input.GetKeyDown(KeyCode.W))
 //         {
 //             playerAnim.SetTrigger("walk");
