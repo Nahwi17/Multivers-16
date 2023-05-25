@@ -60,15 +60,24 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
+        if(move != Vector3.zero)
         {
-            playerAnim.SetBool("walk",true);
+           playerAnim.SetBool("walk",true);  
+        }
+        else
+        {
+            playerAnim.SetBool("walk",false);
+        }
+
+        // if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
+        // {
+        //     playerAnim.SetBool("walk",true);
             
-        }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) ||Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S))
-        {
-            playerAnim.SetBool("walk",false); 
-        }
+        // }
+        // if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) ||Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S))
+        // {
+        //     playerAnim.SetBool("walk",false); 
+        // }
 
         //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
