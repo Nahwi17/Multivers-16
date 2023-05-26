@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 cameraForward = virtualCamera.transform.forward;
         Vector3 cameraRight = virtualCamera.transform.right;
+        // Vector3 direction = new Vector3(x, 0f, z).normalized;
 
         cameraForward.y = 0f;
         cameraRight.y = 0f;
@@ -100,9 +101,13 @@ public class PlayerMovement : MonoBehaviour
  
         //right is the red Axis, foward is the blue axis
         // Vector3 move = transform.right * x + transform.forward * z;
-        
+
+        // if (direction.magnitude >= 0.1f)
+        // {
+        //     float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        //     transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        // }
         move = cameraForward * z + cameraRight * x;
- 
         controller.Move(move * walkSpeed * Time.deltaTime);
         
  
