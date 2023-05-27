@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 458774}
   - component: {fileID: 9545436}
+  - component: {fileID: 5128032250308629427}
   m_Layer: 0
   m_Name: Albino
   m_TagString: Untagged
@@ -54,6 +55,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5128032250308629427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a778641ea61c7cb42846790648ad76b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &102148
 GameObject:
   m_ObjectHideFlags: 0
