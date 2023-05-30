@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("character weapon")]
+    public GameObject weapon;
+    public int characterState = 0;
+    private gameManager manager;
+    [Header("character component")]
     public CharacterController controller;
 
     public Animator playerAnim;
 
     public float walkSpeed = 4f;
+    public float turnSmoothTime = 0.1f;
+    public float turnSmoothVelocity;
     public float sprintSpeed = 8f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 2f;
@@ -17,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+
+    public Transform cam;
     
 
     private Rigidbody rb;
@@ -35,9 +45,31 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         // anim = GetComponent<Animator>();
         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        manager = FindObjectOfType<gameManager>();
+        if(manager == null) print("No manager in scene");
+
+        spawnWeapon();
+
+    }
+
+    void spawnWeapon()
+    {
+        if(characterState == 1)
+        {
+            GameObject mele = Instantiate(manager.meleWeapons.GetComponent<meleWeapons>().weapons[PlayerPrefs.GetInt("currentWeaponIndex")]);
+            mele.transform.parent = weapon.transform;
+            mele.transform.localPosition = Vector3.zero;
+            // mele.transform.localEularAngles = Vector3.zero;
+            mele.transform.localScale = new Vector3(1,1,1);
+        }
     }
     void Update()
     {
+        //weapons
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            spawnWeapon();
+        }
       
       //Sprinting
          
@@ -87,12 +119,12 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
  
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
         Vector3 cameraForward = virtualCamera.transform.forward;
         Vector3 cameraRight = virtualCamera.transform.right;
-        // Vector3 direction = new Vector3(x, 0f, z).normalized;
+        Vector3 direction = new Vector3(x, 0f, z).normalized;
 
         cameraForward.y = 0f;
         cameraRight.y = 0f;
@@ -102,13 +134,18 @@ public class PlayerMovement : MonoBehaviour
         //right is the red Axis, foward is the blue axis
         // Vector3 move = transform.right * x + transform.forward * z;
 
-        // if (direction.magnitude >= 0.1f)
-        // {
-        //     float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //     transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-        // }
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDirection.normalized * walkSpeed * Time.deltaTime);
+        }
+
         move = cameraForward * z + cameraRight * x;
-        controller.Move(move * walkSpeed * Time.deltaTime);
+        
         
  
         //check if the player is on the ground so he can jump
