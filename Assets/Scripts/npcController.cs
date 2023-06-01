@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
@@ -9,8 +10,7 @@ using UnityEngine.AI;
 public class npcController : MonoBehaviour
 {
     [Header("Component")]
-    public slider healthSlider;
-    private Animator animator;
+    public Slider healthSlider;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private GameObject playerObject;
@@ -20,7 +20,7 @@ public class npcController : MonoBehaviour
     public float maxRoamDistance; 
     public float health;
 
-    [HideInspector]public int characterState;
+    public int characterState;
     private float horizontal , vertical;
     private float RoamTimer;
     private float velocity = 0;
@@ -31,6 +31,14 @@ public class npcController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        if(playerObject == null)print("no object with player tag");
+        else 
+        {
+            // playerObject.GetComponent<PlayerMovement>().addNpc(transform.gameObject);
+            
+        }
+        healthSlider.maxValue = health;
     }
 
     // Update is called once per frame
@@ -38,6 +46,7 @@ public class npcController : MonoBehaviour
     {
         animations();
         Roam();
+        healthSlider.value = health;
     }
 
     void Roam()
@@ -74,7 +83,8 @@ public class npcController : MonoBehaviour
 
     public void receiveDamage(float value)
     {
-        animator.SetTrigger("takeDamage")
+        animator.SetTrigger("takeDamage");
+        health -= value;
     }
 
 //     public void receive
