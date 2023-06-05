@@ -9,6 +9,8 @@ TagManager:
   - Monster
   - GameManager
   - Tree
+  - NPC 1
+  - Npc
   layers:
   - Default
   - TransparentFX
