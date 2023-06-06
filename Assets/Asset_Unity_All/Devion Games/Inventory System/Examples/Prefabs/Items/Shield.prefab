@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.94, y: 0.336, z: 2.066}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,10 +57,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,6 +87,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &8980610423399850290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,25 +150,26 @@ MonoBehaviour:
   key: 102
   actionTemplate: {fileID: 11400000, guid: 4114e50432580d84b861b4d87c2a1c2a, type: 2}
   actions:
-  - id: 0
-  - id: 1
-  - id: 2
-  - id: 3
-  - id: 4
-  - id: 5
-  - id: 6
-  - id: 7
-  - id: 8
+  - rid: 0
+  - rid: 1
+  - rid: 2
+  - rid: 3
+  - rid: 4
+  - rid: 5
+  - rid: 6
+  - rid: 7
+  - rid: 8
   m_Interruptable: 0
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: CanPickup, ns: DevionGames.InventorySystem, asm: DevionGames.InventorySystem}
       data:
         m_Type: DevionGames.InventorySystem.CanPickup
         m_Enabled: 1
         m_WindowName: Inventory
-    00000001:
+    - rid: 1
       type: {class: SendMessage, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.SendMessage
@@ -182,20 +187,20 @@ MonoBehaviour:
           m_ObjectValue: {fileID: 0}
           m_ArgumentType: 1
         m_Options: 1
-    00000002:
+    - rid: 2
       type: {class: LookAtTrigger, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.LookAtTrigger
         m_Enabled: 1
         m_Speed: 15
-    00000003:
+    - rid: 3
       type: {class: SetConstraints, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.SetConstraints
         m_Enabled: 1
         m_Target: 1
         m_Constraints: 126
-    00000004:
+    - rid: 4
       type: {class: CrossFade, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.CrossFade
@@ -203,13 +208,13 @@ MonoBehaviour:
         m_Target: 1
         m_AnimatorState: Pickup
         m_TransitionDuration: 0.2
-    00000005:
+    - rid: 5
       type: {class: Wait, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.Wait
         m_Enabled: 1
         duration: 1
-    00000006:
+    - rid: 6
       type: {class: SendMessage, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.SendMessage
@@ -227,14 +232,14 @@ MonoBehaviour:
           m_ObjectValue: {fileID: 0}
           m_ArgumentType: 1
         m_Options: 1
-    00000007:
+    - rid: 7
       type: {class: SetConstraints, ns: DevionGames, asm: DevionGames.Triggers}
       data:
         m_Type: DevionGames.SetConstraints
         m_Enabled: 1
         m_Target: 1
         m_Constraints: 112
-    00000008:
+    - rid: 8
       type: {class: Pickup, ns: DevionGames.InventorySystem, asm: DevionGames.InventorySystem}
       data:
         m_Type: 
