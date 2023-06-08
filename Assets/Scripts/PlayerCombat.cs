@@ -12,13 +12,21 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;
 
+    public float attackRate = 1.5f;
+    float nextAttackTime = 0f;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if(Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
+        
     }
 
     void Attack ()

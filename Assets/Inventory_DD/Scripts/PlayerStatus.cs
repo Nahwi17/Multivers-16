@@ -7,9 +7,9 @@ public class PlayerStatus : MonoBehaviour
 {
     public int hp;
     public int wellness;
-
     public Slider hpSlider;
     public Slider wellnessSlider;
+    
 
     private void OnEnable()
     {
@@ -24,9 +24,11 @@ public class PlayerStatus : MonoBehaviour
     }
 
     private void Start() {
-        SetupHpBar(50);
-        SetupWellnessBar(50);
+        SetupHpBar(75);
+        SetupWellnessBar(75);
+        
     }
+
 
     public void IncreasePlayerHP(int value)
     {
@@ -70,3 +72,8 @@ public class PlayerStatus : MonoBehaviour
         wellnessSlider.value = currentValue;
     }
 }
+
+
+
+
+
