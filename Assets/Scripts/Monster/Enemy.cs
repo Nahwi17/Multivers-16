@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int hp = 110;
     int currentHealth;
     public Slider hpBar;
+    // public nagaKebon;
     public AudioSource hurt, death, napas;
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0)
         {
             Die();
+            // nagaKebon.enabled = false;
         }
 
         SetupHpBar(currentHealth);
