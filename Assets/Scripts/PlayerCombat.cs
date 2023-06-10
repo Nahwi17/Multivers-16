@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
 
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    public AudioSource audioSource;
 
     public float attackRange = 0.5f;
     public int attackDamage = 40;
@@ -24,6 +25,8 @@ public class PlayerCombat : MonoBehaviour
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
+                audioSource.enabled = true;
+                audioSource.Play();
             }
         }
         

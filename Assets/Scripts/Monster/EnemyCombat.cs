@@ -1,45 +1,58 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// public class EnemyCombat : MonoBehaviour
-// {
-//     public PlayerHealth playerHealth;
-//     public int attackDamage = 17;
+public class EnemyCombat : MonoBehaviour
+{
+    public Animator animator;
 
-//     public Transform attackPoint;
-//     public LayerMask playerLayers;
-//     void Start()
-//     {
+    public Transform attackPoint;
+    public LayerMask layers;
+    public AudioSource audioSource;
 
-//     }
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;
 
-//     void Update() 
-//     {
+    public float attackRate = 1.5f;
+    float nextAttackTime = 0f;
 
-//     }
+    // Update is called once per frame
+    void Update()
+    {
+        if(Time.time >= nextAttackTime)
+        {
+            // if (Input.GetButtonDown("Fire2"))
+            // {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+                // audioSource.enabled = true;
+                // audioSource.Play();
+            // }
+        }
+        
+    }
 
-//     void Attack ()
-//     {
-//         //play on atttack animation
-//         // animator.SetTrigger("Attack");
+    void Attack ()
+    {
+        //play on atttack animation
+        // animator.SetTrigger("Attack");
 
-//         //detect enemy in range attack 
-//         Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, playerLayers);
+        //detect enemy in range attack 
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, layers);
 
-//         //damage them 
-//         foreach(Collider player in hitPlayer)
-//         {
-//             player.GetComponent<Player>().TakeDamage(attackDamage);
-//             Debug.Log("We Hit" + player.name);
-//         }
-//     }
-//     // private void OnCollisionEnter(Collision collision) 
-//     // {
-//     //     if(collision.GameObject.tag == "Player")
-//     //     {
-//     //         playerHealth.TakeDamage(damage);
-//     //     }    
-//     // }
-// }
+        //damage them 
+        foreach(Collider player in hitEnemies)
+        {
+            player.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Debug.Log("Musuh hit " + player.name);
+        }
+    }
+
+    void OnDrawGizmosSelected() 
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);    
+    }
+}

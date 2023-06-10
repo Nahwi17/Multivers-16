@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public int hp = 110;
     int currentHealth;
     public Slider hpBar;
-
+    public AudioSource hurt, death, napas;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
 
         //Play hurt animation
         animator.SetTrigger("Hurt");
+        hurt.enabled = true;
+        hurt.Play();
 
         if(currentHealth <= 0)
         {
@@ -45,6 +47,10 @@ public class Enemy : MonoBehaviour
 
         //Die Animation
         animator.SetBool("IsDead", true);
+        death.enabled = true;
+        death.Play();
+        napas.enabled = false;
+
 
         GetComponent<Collider>().enabled = false;
         

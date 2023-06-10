@@ -7,6 +7,7 @@ public class IdleState : StateMachineBehaviour
     float timer;
     Transform player;
     float chaseRange = 8;
+    // public AudioSource walk;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -21,6 +22,9 @@ public class IdleState : StateMachineBehaviour
        timer += Time.deltaTime;
        if(timer > 5)
             animator.SetBool("isPatrolling", true);
+            // walk.enabled = true;
+            // walk.Play();
+
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if(distance < chaseRange )
         {

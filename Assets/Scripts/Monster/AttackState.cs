@@ -6,7 +6,7 @@ public class AttackState : StateMachineBehaviour
 {
     Transform player;
     
-    public Transform attackPoint;
+    // pulic bTransform attackPoint;
     public LayerMask Player;
 
     public float attackRange, distance;
