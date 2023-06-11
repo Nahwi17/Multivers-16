@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     // [SerializeField] private AudioClip m_LandSound; //sound will play when character thouces back on ground
 
     [Header("character weapon")]
-    public GameObject weapon;
+    // public GameObject weapon;
     public int characterState = 0;
     // private gameManager manager;
     [Header("character component")]
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         // m_CharacterController = GetComponent<CharacterController>();
         // m_AudioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();

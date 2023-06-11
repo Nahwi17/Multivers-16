@@ -11,6 +11,13 @@ public class InventoryUIManager : MonoBehaviour
 
     public List<GameObject> inventoryUIList;
 
+    public bool isOpen;
+
+    void start()
+    {
+        isOpen = false;
+    }
+
     public void ShowInventory()
     {
         if (inventoryUIList.Count > 0)
@@ -49,16 +56,33 @@ public class InventoryUIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ShowInventory();
-        }
+        // if (Input.GetKeyDown(KeyCode.I))
+        // {
+        //     ShowInventory();
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     HideInventory();
+        // }
+        if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+        {
+            Debug.Log("i is pressed");
+            ShowInventory();
+            Cursor.lockState = CursorLockMode.None;
+            isOpen = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && isOpen)
         {
             HideInventory();
+            Cursor.lockState = CursorLockMode.Locked;
+            isOpen = false;
         }
     }
 
+    public void AddToInventory(string itemName)
+    {
+        
+    }
 
 }
