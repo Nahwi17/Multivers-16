@@ -7,6 +7,7 @@ public class InventoryDetail : MonoBehaviour
 {
     public Inventory inventory;
     public InventoryUIManager inventoryUiManager;
+    public CraftingUIManager craftingUiManager;
     public ItemBase itemBase;
     public TextMeshProUGUI textName;
 

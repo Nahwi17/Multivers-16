@@ -4,8 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-[SerializeField]
-
+[Serializable]
 public class DialogueOBJ
 {
     public string[] Dialogues;
@@ -19,6 +18,7 @@ public class DialogueObject : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI DialogueText;
+    public PlayerMovement rigid;
 
     private int currentDialogueNum = 0;
     private DialogueOBJ curDialogue = null;
@@ -41,14 +41,13 @@ public class DialogueObject : MonoBehaviour
     void PlayDialogue(DialogueOBJ tempobj)
     {
         nameText.text = tempobj.CharacterName;
-        
         if (currentDialogueNum < tempobj.Dialogues.Length)
         {
             DialogueText.text = tempobj.Dialogues[currentDialogueNum];
         }
         else
         {
-            this.gameObject.SetActive(false);
+            rigid.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             data.DialogueNumber = 0;

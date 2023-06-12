@@ -8,7 +8,7 @@ public class Medicine : ItemBase
     public override void UseItem()
     {
         base.UseItem();
-        Actions.IncreaseWellness(value);
+        Actions.GiveItemToNpc();
     }
 }
 

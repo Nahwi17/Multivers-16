@@ -75,14 +75,22 @@ public class InventoryUIManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.I) && isOpen)
         {
             HideInventory();
-            Cursor.lockState = CursorLockMode.Locked;
+            // if (!CraftingSystem.Instance.isOpen)
+            // {
+               Cursor.lockState = CursorLockMode.Locked; 
+            // }
+            
             isOpen = false;
         }
     }
 
-    public void AddToInventory(string itemName)
-    {
-        
-    }
+    // public void AddToInventory(string itemName)
+    // {
+    //     // itemToAdd = Instantiate(Resources.Load<GameObject>(itemName));
+    //     // // ,whatSlotToEquip.transform.position,whatSlotToEquip.transform.totation);
+    //     // // itemToAdd.transform.SetParent(whatSlotToEquip.transfrom);
+
+    //     // itemList.Add(itemName);
+    // }
 
 }

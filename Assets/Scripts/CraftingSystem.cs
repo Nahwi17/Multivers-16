@@ -40,11 +40,11 @@ public class CraftingSystem : MonoBehaviour
         toolsBTN.onClick.AddListener(delegate{OpenToolsCategory();});
 
         //potion
-        PotionReq1 = toolsScreenUI.transform.Find("Potion").transform.Find("req1").GetComponent<text>();
-        PotionReq2 = toolsScreenUI.transform.Find("Potion").transform.Find("req2").GetComponent<text>();
+        // PotionReq1 = toolsScreenUI.transform.Find("Potion").transform.Find("req1").GetComponent<Text>();
+        // PotionReq2 = toolsScreenUI.transform.Find("Potion").transform.Find("req2").GetComponent<Text>();
 
-        craftPotionBTN = toolsScreenUI.transform.Find("Potion").transform.Find("Button").GetComponent<Button>();
-        craftPotionBTN.onClick.AddListener(delegate{CraftAnyItem();});
+        // craftPotionBTN = toolsScreenUI.transform.Find("Potion").transform.Find("Button").GetComponent<Button>();
+        // craftPotionBTN.onClick.AddListener(delegate{CraftAnyItem();});
 
 
     }
@@ -58,7 +58,7 @@ public class CraftingSystem : MonoBehaviour
     void CraftAnyItem()
     {
         //add item into inventory
-
+        // InventoryUIManager.Instance.AddToInventory();
 
         //remove resousrce from inventory
         
@@ -78,7 +78,12 @@ public class CraftingSystem : MonoBehaviour
         {
             craftingScreenUI.SetActive(false);
             toolsScreenUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
+            
+            // if (!InventorySystem.Instance.isOpen)
+            // {
+               Cursor.lockState = CursorLockMode.Locked; 
+            // }
+            
             isOpen = false;
         }
     }

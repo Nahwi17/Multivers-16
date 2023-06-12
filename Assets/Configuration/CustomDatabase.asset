@@ -71,7 +71,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 0}
   name: Default
-  m_EditorColor: {r: 0, g: 0, b: 0, a: 0}
+  m_EditorColor:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
   m_Cooldown: 1
 --- !u!114 &-5308915436579759696
 MonoBehaviour:

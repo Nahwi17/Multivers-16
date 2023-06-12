@@ -18,4 +18,16 @@ public abstract class ItemBase : MonoBehaviour
     {
         Debug.Log("Use Item :" + itemName);
     }
+
+    
+    public virtual void AddItem()
+    {
+
+    }
+
+    public virtual void GiveItem()
+    {
+
+    }
 }
+

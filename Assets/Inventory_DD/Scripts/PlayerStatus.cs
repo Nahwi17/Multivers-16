@@ -5,71 +5,117 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public int hp;
-    public int wellness;
+    //header hP
+    // public int hp;
     public Slider hpSlider;
-    public Slider wellnessSlider;
-    
+    public float hpDecreaseRate = 1f; // Nilai pengurangan HP per detik
+    public float currentHP;
+
+    //header energy
+    public Slider energySlider;
+    public float energyDecreaseRate = 1f; // Nilai pengurangan energi per detik
+    public float currentEnergy;
 
     private void OnEnable()
     {
         Actions.IncreaseHP += IncreasePlayerHP;
-        Actions.IncreaseWellness += IncreasePlayerWellness;
+        Actions.IncreaseWellness += IncreasePlayerEnergy;
     }
 
     private void OnDisable()
     {
         Actions.IncreaseHP -= IncreasePlayerHP;
-        Actions.IncreaseWellness -= IncreasePlayerWellness;
+        Actions.IncreaseWellness -= IncreasePlayerEnergy;
     }
 
     private void Start() {
         SetupHpBar(75);
-        SetupWellnessBar(75);
+        SetupEnergyBar(75);
+
+        //hp bar 
+        currentHP = 100f; // Nilai HP awal
+        hpSlider.maxValue = currentHP;
+        hpSlider.value = currentHP;
+
+        //energy bar 
+        currentEnergy = 100f; // Nilai energi awal
+        energySlider.maxValue = currentEnergy;
+        energySlider.value = currentEnergy;
+        // InvokeRepeating("DecreaseEnergy", 0f, 10f); // Memanggil fungsi DecreaseEnergy setiap 10 detik
         
+    }
+
+    //mengurangi value hp 
+    public void DecreaseHP()
+    {
+        currentHP -= hpDecreaseRate;
+        // hpSlider.value = currentHP;
+
+        SetupHpBar(currentHP);
+
+        if (currentHP <= 0f)
+        {
+            // Lakukan aksi jika HP mencapai 0 atau kurang dari 0
+            Debug.Log("Game Over");
+        }
+    }
+
+    //energy
+    private void DecreaseEnergy()
+    {
+        currentEnergy -= energyDecreaseRate;
+        energySlider.value = currentEnergy;
+
+        if (currentEnergy <= 0f)
+        {
+            // Panggil fungsi DecreaseHP dari script HPBar
+            // HPBar hpBar = FindObjectOfType<HPBar>();
+            // hpBar.DecreaseHP();
+            DecreaseHP();
+        }
     }
 
 
     public void IncreasePlayerHP(int value)
     {
-        if (hp < 100)
+        if (currentHP < 100)
         {
-            hp += value;
+            currentHP += value;
             
-            if(hp >= 100)
+            if(currentHP >= 100)
             {
-                hp = 100;
+                currentHP = 100;
             }
 
-            SetupHpBar(hp);
+            SetupHpBar(currentHP);
         } 
     }
 
-    public void IncreasePlayerWellness(int value)
+    public void IncreasePlayerEnergy(int value)
     { 
-        if (wellness < 100)
+        if (currentEnergy < 100)
         {
-            wellness += value;
+            currentEnergy += value;
 
-            if(wellness >= 100)
+            if(currentEnergy >= 100)
             {
-                wellness= 100;
+                currentEnergy = 100;
             }
 
-            SetupWellnessBar(wellness);
+            SetupEnergyBar(currentEnergy);
         }
     }
 
-    public void SetupHpBar(int currentValue)
+    public void SetupHpBar(float currentValue)
     {
-        hp = currentValue;
+        currentHP = currentValue;
         hpSlider.value = currentValue;
     }
 
-    public void SetupWellnessBar(int currentValue)
+    public void SetupEnergyBar(float currentValue)
     {
-        wellness = currentValue;
-        wellnessSlider.value = currentValue;
+        currentEnergy = currentValue;
+        energySlider.value = currentValue;
     }
 }
 
