@@ -38,13 +38,13 @@ public class EnemyCombat : MonoBehaviour
         // animator.SetTrigger("Attack");
 
         //detect enemy in range attack 
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, layers);
+        Collider[] hitPlayers = Physics.OverlapSphere(attackPoint.position, attackRange, layers);
 
         //damage them 
-        foreach(Collider player in hitEnemies)
+        foreach(Collider enemy in hitPlayers)
         {
-            player.GetComponent<Enemy>().TakeDamage(attackDamage);
-            Debug.Log("Musuh hit " + player.name);
+            enemy.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            Debug.Log("Musuh hit " + enemy.name);
         }
     }
 

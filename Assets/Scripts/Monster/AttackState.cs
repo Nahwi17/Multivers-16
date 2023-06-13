@@ -26,6 +26,7 @@ public class AttackState : StateMachineBehaviour
         if (distance > 4f)
             animator.SetBool("isAttacking", false);
 
+       
         //detect enemy in range attack 
         // Collider[] hitPlayer = Physics.OverlapSphere(attackPoint.position, attackRange, Player);
 
@@ -35,8 +36,9 @@ public class AttackState : StateMachineBehaviour
         //     player.GetComponent<Player>().TakeDamage(attackDamage);
         //     Debug.Log("We Hit" + player.name);
         // }
-    
+
     }
+
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

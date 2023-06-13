@@ -8,44 +8,62 @@ public class PlayerStatus : MonoBehaviour
     //header hP
     // public int hp;
     public Slider hpSlider;
-    public float hpDecreaseRate = 1f; // Nilai pengurangan HP per detik
+   // public float hpDecreaseRate = 1f; // Nilai pengurangan HP per detik
     public float currentHP;
-
+    //public float maxhealth;
     //header energy
-    public Slider energySlider;
-    public float energyDecreaseRate = 1f; // Nilai pengurangan energi per detik
-    public float currentEnergy;
+   // public Slider energySlider;
+   // public float energyDecreaseRate = 1f; // Nilai pengurangan energi per detik
+   // public float currentEnergy;
 
     private void OnEnable()
     {
         Actions.IncreaseHP += IncreasePlayerHP;
-        Actions.IncreaseWellness += IncreasePlayerEnergy;
+       // Actions.IncreaseWellness += IncreasePlayerEnergy;
     }
 
     private void OnDisable()
     {
         Actions.IncreaseHP -= IncreasePlayerHP;
-        Actions.IncreaseWellness -= IncreasePlayerEnergy;
+        //Actions.IncreaseWellness -= IncreasePlayerEnergy;
     }
 
     private void Start() {
-        SetupHpBar(75);
-        SetupEnergyBar(75);
+        SetupHpBar(100);
+       // SetupEnergyBar(75);
 
         //hp bar 
-        currentHP = 100f; // Nilai HP awal
+        currentHP = 90f; // Nilai HP awal
         hpSlider.maxValue = currentHP;
         hpSlider.value = currentHP;
 
+
         //energy bar 
-        currentEnergy = 100f; // Nilai energi awal
+        /*currentEnergy = 100f; // Nilai energi awal
         energySlider.maxValue = currentEnergy;
         energySlider.value = currentEnergy;
         // InvokeRepeating("DecreaseEnergy", 0f, 10f); // Memanggil fungsi DecreaseEnergy setiap 10 detik
-        
+        */
+    }
+    //player terkena damage 
+    public void TakeDamage(float Damage)
+    {
+        currentHP -= Damage;
+        hpSlider.value = currentHP;
+        //currentHP.ToString(F)
     }
 
+    /*
+    public void Heal(float Health)
+    {
+        currentHP += Health;
+        if(currentHP > MaxHealth)
+
+    }
+    */
+
     //mengurangi value hp 
+    /*
     public void DecreaseHP()
     {
         currentHP -= hpDecreaseRate;
@@ -59,8 +77,10 @@ public class PlayerStatus : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
+    */
 
     //energy
+    /*
     private void DecreaseEnergy()
     {
         currentEnergy -= energyDecreaseRate;
@@ -74,11 +94,11 @@ public class PlayerStatus : MonoBehaviour
             DecreaseHP();
         }
     }
-
+    */
 
     public void IncreasePlayerHP(int value)
     {
-        if (currentHP < 100)
+        if (currentHP < 90)
         {
             currentHP += value;
             
@@ -91,6 +111,7 @@ public class PlayerStatus : MonoBehaviour
         } 
     }
 
+    /*
     public void IncreasePlayerEnergy(int value)
     { 
         if (currentEnergy < 100)
@@ -105,18 +126,20 @@ public class PlayerStatus : MonoBehaviour
             SetupEnergyBar(currentEnergy);
         }
     }
-
+    */
     public void SetupHpBar(float currentValue)
     {
         currentHP = currentValue;
         hpSlider.value = currentValue;
     }
 
+    /*
     public void SetupEnergyBar(float currentValue)
     {
         currentEnergy = currentValue;
         energySlider.value = currentValue;
     }
+    */
 }
 
 

@@ -22,7 +22,11 @@ public abstract class ItemBase : MonoBehaviour
     
     public virtual void AddItem()
     {
+      /*     itemToAdd = Instantiate(Resources Load<GameObject>(itemName))
+            itemToAdd.transform.SetParent();//whatSlotToEquip.transform)
 
+            itemList.Add(itemName);
+      */
     }
 
     public virtual void GiveItem()

@@ -18,6 +18,7 @@ public class CraftingManager : MonoBehaviour
             // potionResult = recipeData[i];
             
             inventory.itemList.Add(potionResult);
+            mixer.Clear();
             // break;
         }
         // Debug.Log("STIRRING");

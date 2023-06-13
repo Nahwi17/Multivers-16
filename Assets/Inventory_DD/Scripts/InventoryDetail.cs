@@ -8,6 +8,7 @@ public class InventoryDetail : MonoBehaviour
     public Inventory inventory;
     public InventoryUIManager inventoryUiManager;
     public CraftingUIManager craftingUiManager;
+    public QuestUIManager questUiManager;
     public ItemBase itemBase;
     public TextMeshProUGUI textName;
 
@@ -25,6 +26,21 @@ public class InventoryDetail : MonoBehaviour
             inventoryUiManager.inventoryUIList.Remove(this.gameObject);
             Destroy(this.gameObject);
             inventoryUiManager.ShowInventory();
+        }
+
+
+        if (craftingUiManager.inventoryUIList.Contains(this.gameObject))
+        {
+            craftingUiManager.inventoryUIList.Remove(this.gameObject);
+            Destroy(this.gameObject);
+            craftingUiManager.ShowInventory();
+        }
+
+        if (questUiManager.inventoryUIList.Contains(this.gameObject))
+        {
+            questUiManager.inventoryUIList.Remove(this.gameObject);
+            Destroy(this.gameObject);
+            questUiManager.ShowInventory();
         }
     }
 

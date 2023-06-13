@@ -84,13 +84,33 @@ public class InventoryUIManager : MonoBehaviour
         }
     }
 
-    // public void AddToInventory(string itemName)
-    // {
-    //     // itemToAdd = Instantiate(Resources.Load<GameObject>(itemName));
-    //     // // ,whatSlotToEquip.transform.position,whatSlotToEquip.transform.totation);
-    //     // // itemToAdd.transform.SetParent(whatSlotToEquip.transfrom);
+    //public void AddToInventory(string itemName)
+    //{
+        
+    //    itemToAdd = Instantiate(Resources.Load<GameObject>(itemName));
+    //    //,whatSlotToEquip.transform.position,whatSlotToEquip.transform.totation);
+    //     //itemToAdd.transform.SetParent(whatSlotToEquip.transfrom);
 
-    //     // itemList.Add(itemName);
-    // }
+    //    itemList.Add(itemName);
+        
+    //}
+
+    //public void RemoveItem(string nameToRemove, int amountToRemove)
+    //{
+    //    int counter = amountToRemove;
+
+    //    for(var i = slotList.Count - 1; i >= 0; i--)
+    //    {
+    //        if(slotList[1].transform.childCount > 0)
+    //        {
+    //            if(slotList[i].transform.GetChild(0).name == nameToRemove + "(Clone)" && counter !=0 )
+    //            {
+    //                Destroy(slotList[i].transform.getChild(0).gameObject);
+
+    //                counter -= 1;
+    //            }
+    //        }
+    //    }
+    //}
 
 }

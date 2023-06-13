@@ -74,8 +74,21 @@ public class Npc1 : MonoBehaviour
                     // }
             }
         }
-    }   
-    
+    }
+
+    private void OnEnable()
+    {
+        Actions.GiveItemToNpc += Given;
+    }
+
+    private void OnDisable()
+    {
+        Actions.GiveItemToNpc -= Given;
+    }
+    public void Given()
+    {
+        Debug.Log("Mision complete");
+    }
 
     private void OnTriggerExit(Collider other) 
     {

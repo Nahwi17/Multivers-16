@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftingUIManager : MonoBehaviour
+public class QuestUIManager : MonoBehaviour
 {
     public Inventory inventory;
-    public GameObject inventoryMasterUI;
+    public GameObject QuestMasterUI;
     public Transform parentInventory;
     public InventoryDetail inventoryDetail;
 
@@ -30,34 +30,33 @@ public class CraftingUIManager : MonoBehaviour
 
         inventoryUIList = new List<GameObject>();
 
-        inventoryMasterUI.SetActive(true);
+        QuestMasterUI.SetActive(true);
 
         SetupInventoryUI();
     }
 
     public void HideInventory()
     {
-        inventoryMasterUI.SetActive(false);
+        QuestMasterUI.SetActive(false);
     }
 
     public void SetupInventoryUI()
     {
         for (int i = 0; i < inventory.itemList.Count; i++)
         {
-            if (inventory.itemList[i].itemType == ItemType.Material)
+            if (inventory.itemList[i].itemType == ItemType.Medicine)
             {
-                inventoryDetail.inventory = inventory;
-                inventoryDetail.craftingUiManager = this;
+                inventoryDetail.inventory = inventory; 
+                inventoryDetail.questUiManager = this;
                 inventoryDetail.textName.text = inventory.itemList[i].itemName;
                 inventoryDetail.itemBase = inventory.itemList[i];
                 GameObject tmpObject = Instantiate(inventoryDetail.gameObject, parentInventory.transform);
 
                 inventoryUIList.Add(tmpObject);
             }
+                
         }
     }
-
-    
 
     private void Update()
     {
@@ -70,14 +69,14 @@ public class CraftingUIManager : MonoBehaviour
         // {
         //     HideInventory();
         // }
-        if (Input.GetKeyDown(KeyCode.C) && !isOpen)
+        if (Input.GetKeyDown(KeyCode.E) && !isOpen)
         {
             Debug.Log("i is pressed");
             ShowInventory();
             Cursor.lockState = CursorLockMode.None;
             isOpen = true;
         }
-        else if (Input.GetKeyDown(KeyCode.C) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.E) && isOpen)
         {
             HideInventory();
             // if (!CraftingSystem.Instance.isOpen)
@@ -88,15 +87,4 @@ public class CraftingUIManager : MonoBehaviour
             isOpen = false;
         }
     }
-
-
-    //public void AddToInventory(string itemName)
-    //{
-    //    itemToAdd = Instantiate(Resources.Load<GameObject>(itemName));
-    //    //,whatSlotToEquip.transform.position,whatSlotToEquip.transform.totation);
-    //    //itemToAdd.transform.SetParent(whatSlotToEquip.transfrom);
-
-    //    itemList.Add(itemName);
-    //}
-
 }
