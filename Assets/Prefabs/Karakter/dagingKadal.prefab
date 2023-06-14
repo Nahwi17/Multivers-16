@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8595273003878709436}
-  - component: {fileID: 8595273003878709439}
   - component: {fileID: 8595273003878709438}
   - component: {fileID: 8595273003878709437}
+  - component: {fileID: -1451654699207847599}
   m_Layer: 7
   m_Name: dagingKadal
   m_TagString: Untagged
@@ -35,24 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8595273003878709439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8595273003878709435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182ce4b2eb9ec3f49b12ddf7327fc132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: 
-  isCD: 0
-  cooldown: 10
-  timer: 0
-  objectView: {fileID: 8901895247707045070}
-  item: {fileID: -9024162966640530065, guid: 801af5bdec2af394c8d1a64f8f09a9c1, type: 3}
 --- !u!65 &8595273003878709438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82,6 +64,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &-1451654699207847599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595273003878709435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79c43a2ef656f84db2df7fd1b1d8f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: 
+  item: {fileID: -9024162966640530065, guid: 801af5bdec2af394c8d1a64f8f09a9c1, type: 3}
 --- !u!1001 &8595273002933666207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,10 +154,5 @@ PrefabInstance:
 --- !u!4 &8125111914664601204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 89bc498b1ebb86e4da6e35f8a603f60a, type: 3}
-  m_PrefabInstance: {fileID: 8595273002933666207}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8901895247707045070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 89bc498b1ebb86e4da6e35f8a603f60a, type: 3}
   m_PrefabInstance: {fileID: 8595273002933666207}
   m_PrefabAsset: {fileID: 0}
