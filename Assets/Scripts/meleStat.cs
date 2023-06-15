@@ -9,18 +9,18 @@
 
 //    string tt;
 
-//     void Update() {
-//         RaycastHit hit;
-//         if(Physics.Raycast(transform.position , transform.up, out hit, maxDistance ))  
-//         {
-//             print("hit: " + hit.transform.name);
-//             // hit.transform.root
-//         }
-//     }
+    void Update() {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position , transform.up, out hit, maxDistance ))  
+        {
+            print("hit: " + hit.transform.name);
+            // hit.transform.root
+        }
+    }
 
-//     void private void OnDrawGizmos() {
-//         Gizmos.DrawRay(transform.position , transform.up * masDistance);
-//     }
+    void private void OnDrawGizmos() {
+        Gizmos.DrawRay(transform.position , transform.up * masDistance);
+    }
 
 //     void OnGUI() {
 //         GUI.Label(new Rect(180, 50, 200, 20), tt);

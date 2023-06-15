@@ -8,6 +8,11 @@ TagManager:
   - CinemachineTarget
   - Monster
   - GameManager
+  - Tree
+  - NPC 1
+  - Npc
+  - Fire
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,10 +20,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Tree
+  - Item
+  - Enemies
+  - Player
   - 
   - 
   - 

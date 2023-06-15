@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+// using System.Collections.Generic;
 
-
+// [RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
+    // [Header("Audio")]
+    // [SerializeField] private List<AudioClip> m_FootstepSounds = new List<AudioClip>(); //array of footstep sound will randomlu select
+    // [SerializeField] private AudioClip m_JumpSound; //will play if character leave from land
+    // [SerializeField] private AudioClip m_LandSound; //sound will play when character thouces back on ground
+
     [Header("character weapon")]
-    public GameObject weapon;
+    // public GameObject weapon;
     public int characterState = 0;
-    private gameManager manager;
+    // private gameManager manager;
     [Header("character component")]
     public CharacterController controller;
+
+    // public Inventory inventory;
 
     public Animator playerAnim;
 
@@ -28,10 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform cam;
     
+    
 
     private Rigidbody rb;
     private CinemachineVirtualCamera virtualCamera;
     private Animator anim;
+    // private AudioSource m_AudioSource;
     
 
     Vector3 velocity;
@@ -42,34 +52,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        // m_CharacterController = GetComponent<CharacterController>();
+        // m_AudioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         // anim = GetComponent<Animator>();
         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        manager = FindObjectOfType<gameManager>();
-        if(manager == null) print("No manager in scene");
+        // manager = FindObjectOfType<gameManager>();
+        // if(manager == null) print("No manager in scene");
 
-        spawnWeapon();
+        // spawnWeapon();
 
     }
 
-    void spawnWeapon()
-    {
-        if(characterState == 1)
-        {
-            GameObject mele = Instantiate(manager.meleWeapons.GetComponent<meleWeapons>().weapons[PlayerPrefs.GetInt("currentWeaponIndex")]);
-            mele.transform.parent = weapon.transform;
-            mele.transform.localPosition = Vector3.zero;
-            // mele.transform.localEularAngles = Vector3.zero;
-            mele.transform.localScale = new Vector3(1,1,1);
-        }
-    }
+    // void spawnWeapon()
+    // {
+    //     if(characterState == 1)
+    //     {
+    //         GameObject mele = Instantiate(manager.meleWeapons.GetComponent<meleWeapons>().weapons[PlayerPrefs.GetInt("currentWeaponIndex")]);
+    //         mele.transform.parent = weapon.transform;
+    //         mele.transform.localPosition = Vector3.zero;
+    //         // mele.transform.localEularAngles = Vector3.zero;
+    //         mele.transform.localScale = new Vector3(1,1,1);
+    //     }
+    // }
     void Update()
     {
-        //weapons
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            spawnWeapon();
-        }
+        // //weapons
+        // if(Input.GetKeyDown(KeyCode.R))
+        // {
+        //     spawnWeapon();
+        // }
       
       //Sprinting
          
@@ -154,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
             //the equation for jumping
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             playerAnim.SetTrigger("Jump");
+            // PlayLandingSound();
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -165,122 +179,32 @@ public class PlayerMovement : MonoBehaviour
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, toRotation, 0.15f));
         }
     }
+
+    // private void PLayFootStepAudio()
+    // {
+    //     if ( !m_CharacterController.isGrounded)
+    //     {
+    //         return;
+    //     }
+    //     // pick & play random ootstep sound of the array 
+    //     // excluidng sound at index 0
+
+    //     int n = Random.Range(1, m_FootstepSounds.Count);
+    //     m_AudioSource.clip = m_FootstepSounds[n];
+    //     m_AudioSource.PlayOneShot(m_AudioSource.clip);
+    //     //move picked sound to index 0 so its not pick next time
+    //     m_FootstepSounds[n] = m_FootstepSounds[0];
+    //     m_FootstepSounds[0] = m_AudioSource.clip;
+    // }
+
+    // private void OnControllerColliderHit(ControllerColliderHit hit) 
+    // {
+    //     IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+    //     if(item != null)
+    //     {
+    //         inventory.AddItem(item);
+    //     }
+    // }
+
 }
 
-// using UnityEngine;
-
-// public class PlayerMovement : MonoBehaviour
-// {
-//     public float walkSpeed = 5f;
-//     public float sprintSpeed = 10f;
-//     public float walkBackSpeed = 3f;
-//     public float jumpForce = 5f;
-
-//     private bool isJumping = false;
-//     private bool isSprinting = false;
-//     private bool isWalkingBack = false;
-//     private Rigidbody rb;
-//     private Animator anim;
-
-//     private void Start()
-//     {
-//         rb = GetComponent<Rigidbody>();
-//         anim = GetComponent<Animator>();
-//     }
-
-//     private void Update()
-//     {
-//         float moveSpeed = walkSpeed;
-
-//         if (isSprinting)
-//         {
-//             moveSpeed = sprintSpeed;
-//         }
-//         else if (isWalkingBack)
-//         {
-//             moveSpeed = walkBackSpeed;
-//         }
-
-//         float moveX = Input.GetAxis("Horizontal");
-//         float moveZ = Input.GetAxis("Vertical");
-
-//         Vector3 movement = new Vector3(moveX, 0f, moveZ) * moveSpeed * Time.deltaTime;
-//         rb.MovePosition(transform.position + movement);
-
-//         if (movement.magnitude > 0)
-//         {
-//             if (isSprinting)
-//             {
-//                 anim.SetFloat("speed", 2f);
-//             }
-//             else
-//             {
-//                 anim.SetFloat("speed", 1f);
-//             }
-//         }
-//         else
-//         {
-//             anim.SetFloat("speed", 0f);
-//         }
-
-//         if (Input.GetKey(KeyCode.LeftShift))
-//         {
-//             isSprinting = true;
-//         }
-//         else
-//         {
-//             isSprinting = false;
-//         }
-
-//         if (Input.GetKey(KeyCode.S))
-//         {
-//             isWalkingBack = true;
-//         }
-//         else
-//         {
-//             isWalkingBack = false;
-//         }
-
-//         if (Input.GetButtonDown("Jump") && !isJumping)
-//         {
-//             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-//             isJumping = true;
-//             anim.SetTrigger("jump");
-//         }
-//     }
-
-//     private void OnCollisionEnter(Collision collision)
-//     {
-//         if (collision.gameObject.CompareTag("Ground"))
-//         {
-//             isJumping = false;
-//             anim.ResetTrigger("jump");
-//         }
-//     }
-// }
-
-
-// //   if (Input.GetKeyDown(KeyCode.W))
-// //         {
-// //             playerAnim.SetTrigger("walk");
-// //             playerAnim.ResetTrigger("idle");
-            
-// //         }
-
-// //         if (Input.GetKeyUp(KeyCode.W))
-// //         {
-// //             playerAnim.ResetTrigger("walk");
-// //             playerAnim.SetTrigger("idle");
-            
-// //         }
-// //         if (Input.GetKeyDown(KeyCode.S))
-// //         {
-// //             playerAnim.SetTrigger("walkback");
-// //             playerAnim.ResetTrigger("idle");
-// //         }
-
-// //         if (Input.GetKeyUp(KeyCode.S))
-// //         {   
-// //             playerAnim.ResetTrigger("walkback")
-// //             playerAnim.SetTrigger("idle");
-// //         }

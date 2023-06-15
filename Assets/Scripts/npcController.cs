@@ -1,44 +1,44 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.AI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
 
 // [RequireComponent(typeof(Animator))]
 // [RequireComponent(typeof(NavMeshAgent))]
 
-// public class npcController : MonoBehaviour
-// {
-//     [Header("Component")]
-//     public slider healthSlider;
-//     private Animator animator;
-//     private Animator animator;
-//     private NavMeshAgent navMeshAgent;
-//     private GameObject playerObject;
+public class npcController : MonoBehaviour
+{
+    [Header("Component")]
+    public slider healthSlider;
+    private Animator animator;
+    private Animator animator;
+    private NavMeshAgent navMeshAgent;
+    private GameObject playerObject;
     
 //     [Header("Values")]
 //     public float roamCooldownTime = 10;
 //     public float maxRoamDistance; 
 //     public float health;
 
-//     [HideInspector]public int characterState;
-//     private float horizontal , vertical;
-//     private float RoamTimer;
-//     private float velocity = 0;
-//     private bool stateChangedFlag = false; // used once to change state of player
+    [HideInspector]public int characterState;
+    private float horizontal , vertical;
+    private float RoamTimer;
+    private float velocity = 0;
+    private bool stateChangedFlag = false; // used once to change state of player
 
-//     // Start is called before the first frame update
-//     void Start()
-//     {
-//         animator = GetComponent<Animator>();
-//         navMeshAgent = GetComponent<NavMeshAgent>();
-//     }
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+    }
 
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         animations();
-//         Roam();
-//     }
+    // Update is called once per frame
+    void Update()
+    {
+        animations();
+        Roam();
+    }
 
 //     void Roam()
 //     {
@@ -72,10 +72,10 @@
 //         return"out of range";
 //     }
 
-//     public void receiveDamage(float value)
-//     {
-//         animator.SetTrigger("takeDamage")
-//     }
+    public void receiveDamage(float value)
+    {
+        animator.SetTrigger("takeDamage")
+    }
 
 // //     public void receive
 
