@@ -1,29 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class meleStat : MonoBehaviour
-{
-   public float damage;
-   [Range(0,1)]public float maxDistance;
+// public class meleStat : MonoBehaviour
+// {
+//    public float damage;
+//    [Range(0,1)]public float maxDistance;
 
-   string tt;
+//    string tt;
 
     void Update() {
         RaycastHit hit;
         if(Physics.Raycast(transform.position , transform.up, out hit, maxDistance ))  
         {
             print("hit: " + hit.transform.name);
-            if(hit.transform.root.GetComponent<npcController>() != null)
-                hit.transform.root.GetComponent<npcController>().receiveDamage(damage);
+            // hit.transform.root
         }
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.DrawRay(transform.position , transform.up * maxDistance);
+    void private void OnDrawGizmos() {
+        Gizmos.DrawRay(transform.position , transform.up * masDistance);
     }
 
-    void OnGUI() {
-        GUI.Label(new Rect(180, 50, 200, 20), tt);
-   }
-}
+//     void OnGUI() {
+//         GUI.Label(new Rect(180, 50, 200, 20), tt);
+//    }
+// }
