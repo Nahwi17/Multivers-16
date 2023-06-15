@@ -5,17 +5,41 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public static PlayerStatus Instance { get; set; }
     //header hP
-    // public int hp;
+    public int hp;
     public Slider hpSlider;
    // public float hpDecreaseRate = 1f; // Nilai pengurangan HP per detik
     public float currentHP;
     //public float maxhealth;
     //header energy
-   // public Slider energySlider;
-   // public float energyDecreaseRate = 1f; // Nilai pengurangan energi per detik
-   // public float currentEnergy;
+    // public Slider energySlider;
+    // public float energyDecreaseRate = 1f; // Nilai pengurangan energi per detik
+    // public float currentEnergy;
 
+    void Awake()
+    {
+        hpSlider = GetComponent<Slider>();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        else
+        {
+            Instance = this;
+        }
+    }
+    //void Update()
+    //{
+    //    currentHP = hp;
+    //    maxHealth = playerState.GetComponent<PlayerState>().maxHealth;
+
+    //    float fillValue = currentHealth / maxHealth;
+    //    slider.value = fillValue;
+
+    //    //healthCounter.text = currentHealth + "/" + maxHealth;
+    //}
     private void OnEnable()
     {
         Actions.IncreaseHP += IncreasePlayerHP;
@@ -29,13 +53,14 @@ public class PlayerStatus : MonoBehaviour
     }
 
     private void Start() {
-        SetupHpBar(100);
-       // SetupEnergyBar(75);
+        SetupHpBar(95);
+        // SetupEnergyBar(75);
 
         //hp bar 
-        currentHP = 90f; // Nilai HP awal
-        hpSlider.maxValue = currentHP;
-        hpSlider.value = currentHP;
+        currentHP = hp;
+        //currentHP = 100f; // Nilai HP awal
+        //hpSlider.maxValue = currentHP;
+        //hpSlider.value = currentHP;
 
 
         //energy bar 
@@ -46,12 +71,12 @@ public class PlayerStatus : MonoBehaviour
         */
     }
     //player terkena damage 
-    public void TakeDamage(float Damage)
-    {
-        currentHP -= Damage;
-        hpSlider.value = currentHP;
-        //currentHP.ToString(F)
-    }
+    //public void TakeDamage(float Damage)
+    //{
+    //    currentHP -= Damage;
+    //    hpSlider.value = currentHP;
+    //    //currentHP.ToString(F)
+    //}
 
     /*
     public void Heal(float Health)
@@ -98,7 +123,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void IncreasePlayerHP(int value)
     {
-        if (currentHP < 90)
+        if (currentHP < 100)
         {
             currentHP += value;
             

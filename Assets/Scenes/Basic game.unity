@@ -7474,31 +7474,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.8796403
-  m_Height: 5.888169
+  m_Radius: 2.1232212
+  m_Height: 6.8103194
   m_Direction: 2
-  m_Center: {x: 0.11271341, y: 2.1858575, z: 0.5861306}
---- !u!114 &234676456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234676449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0278d80013ee124e92f1554bf6f797a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 234676451}
-  attackPoint: {fileID: 234676452}
-  layers:
-    serializedVersion: 2
-    m_Bits: 512
-  audioSource: {fileID: 234676461}
-  attackRange: 0.5
-  attackDamage: 40
-  attackRate: 1.5
+  m_Center: {x: 0.112713374, y: 1.9422765, z: 0.12505808}
 --- !u!82 &234676458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11104,6 +11083,10 @@ PrefabInstance:
       propertyPath: Naga
       value: 
       objectReference: {fileID: 234676449}
+    - target: {fileID: 868376815847172478, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 1187113799}
     - target: {fileID: 868376815847172478, guid: 88e480c990c9d6a458b5fc85fe1da2aa, type: 3}
       propertyPath: hurt
       value: 
@@ -26773,7 +26756,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1496424, y: -0.78723335, z: 0.21035631, w: 0.56001884}
+  m_LocalRotation: {x: 0.1496424, y: -0.7872335, z: 0.21035641, w: 0.56001866}
   m_LocalPosition: {x: 115.77875, y: 87.5, z: 720.3119}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33656,6 +33639,66 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1152733550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152733551}
+  - component: {fileID: 1152733553}
+  - component: {fileID: 1152733552}
+  m_Layer: 8
+  m_Name: Enemy damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152733551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152733550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 234676452}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1152733552
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152733550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 7.5
+  m_Height: 13.97
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.68, z: -0.02}
+--- !u!114 &1152733553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152733550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0278d80013ee124e92f1554bf6f797a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
 --- !u!4 &1152924531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 464220, guid: 06570ef7d42fd0940a7181d33ef3e3e2, type: 3}
@@ -33815,7 +33858,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 55
+  m_Value: 90
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -34309,9 +34352,9 @@ GameObject:
   - component: {fileID: 1187113799}
   - component: {fileID: 1187113809}
   - component: {fileID: 1187113810}
-  - component: {fileID: 1187113811}
   - component: {fileID: 1187113813}
   - component: {fileID: 1187113812}
+  - component: {fileID: 1187113814}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -34510,20 +34553,6 @@ MonoBehaviour:
   itemList:
   - {fileID: 6706457414215985393, guid: 1c594bc1d72b6ee468d9edc68bc22350, type: 3}
   HasKey: 0
---- !u!114 &1187113811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187113787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da94b85c80441d4a8abffd1e3ce38b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpSlider: {fileID: 1159895655}
-  currentHP: 80
 --- !u!82 &1187113812
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34634,6 +34663,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepsSound: {fileID: 1187113812}
   sprintSound: {fileID: 675685217}
+--- !u!114 &1187113814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187113787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da94b85c80441d4a8abffd1e3ce38b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  hpSlider: {fileID: 1159895655}
+  currentHP: 0
 --- !u!1 &1192065498
 GameObject:
   m_ObjectHideFlags: 0
@@ -52546,19 +52590,6 @@ MonoBehaviour:
   attackRange: 0.8
   attackDamage: 18
   attackRate: 1.5
---- !u!114 &1561114878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561114874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c9dccb57fc5014eab1816147dd1891, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!82 &1561114879
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54039,7 +54070,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654240547}
-  m_LocalRotation: {x: 0.14964238, y: -0.7872334, z: 0.21035634, w: 0.5600188}
+  m_LocalRotation: {x: 0.14964236, y: -0.7872335, z: 0.21035632, w: 0.5600187}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -64039,7 +64070,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976956313}
-  m_LocalRotation: {x: 0.15980408, y: -0.7832769, z: 0.22464097, w: 0.55720407}
+  m_LocalRotation: {x: 0.1598041, y: -0.7832769, z: 0.2246409, w: 0.5572042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65522,6 +65553,7 @@ MonoBehaviour:
   death: {fileID: 2072360104}
   napas: {fileID: 2072360106}
   Naga: {fileID: 2072360094}
+  data: {fileID: 0}
   attackPoint: {fileID: 2072360101}
   attackRange: 0.5
   attackDamage: 40
