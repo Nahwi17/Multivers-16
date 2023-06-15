@@ -9,6 +9,7 @@ public class EnemyCombat : MonoBehaviour
 
     int interval = 1;
     float nextTime = 0;
+    public Collider demegenemy;
 
    
 
@@ -44,6 +45,15 @@ public class EnemyCombat : MonoBehaviour
         {
             playerInRange = false;
         }
+    }
+
+    void Die()
+    {
+        Debug.Log("damage enemy null");
+
+
+        GetComponent<Collider>().enabled = false;
+        //Naga.SetActive(false);
     }
 
 
