@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public AudioSource hurt, death, napas;
     public GameObject Naga;
 
-    private PlayerData data;
+    public PlayerData data;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public int attackDamage = 40;
@@ -24,6 +24,14 @@ public class Enemy : MonoBehaviour
 
     public GameObject dropItem;
     public int dropCount;
+
+    //damage ke player 
+    GameObject playerStatus;
+
+    //void Awake()
+    //{
+    //    hpBar = GetComponent<Slider>();    
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +44,19 @@ public class Enemy : MonoBehaviour
     }
     public void Update()
     {
-        if (!isAttacking)
-        {
-            StartCoroutine(Attack());
-        }
+
+        //currentHealth = playerStatus.GetComponent<PlayerStatus>().hp;
+      
+
+        //float fillValue = currentHealth / hp;
+        //hpBar.value = currentHP;
+
+        StartCoroutine(Attack());
+    //if (!isAttacking)
+    //    {
+            
+        //}
+        
     }
     IEnumerator Attack()
     {
