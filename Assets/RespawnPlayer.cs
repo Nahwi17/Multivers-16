@@ -8,9 +8,11 @@ public class RespawnPlayer : MonoBehaviour
     [SerializeField] private Transform Player;
     [SerializeField] private Transform respawnPoint;
 
-    void OnTriggerEnter(Collider other)
+    public void RespawnPlayerToPoint()
     {
-        Player.transform.position = respawnPoint.transform.position;
-
+        Player.transform.localPosition = Vector3.zero;
+        //Player.transform.localPosition = respawnPoint.transform.localPosition;
+        Debug.Log("player respawn");
     }
+    
 }

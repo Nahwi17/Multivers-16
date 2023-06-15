@@ -16,6 +16,7 @@ public class EnemyCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Time.time >= nextTime)
         {
 
@@ -23,6 +24,7 @@ public class EnemyCombat : MonoBehaviour
             if (playerInRange)
             {
                 PlayerStatus.Instance.currentHP -= 6;
+                PlayerStatus.Instance.SetupHpBar(PlayerStatus.Instance.currentHP);
             }
 
             nextTime += interval;

@@ -19,7 +19,8 @@ public class PlayerStatus : MonoBehaviour
 
     void Awake()
     {
-        hpSlider = GetComponent<Slider>();
+
+        //hpSlider = GetComponent<Slider>();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -134,6 +135,25 @@ public class PlayerStatus : MonoBehaviour
 
             SetupHpBar(currentHP);
         } 
+    }
+    public void DecreasePlayerHP(int value)
+    {
+        if (currentHP > 0)
+        {
+            currentHP -= value;
+
+            if (currentHP <= 0)
+            {
+                currentHP = 0;
+            }
+            Dead();
+            SetupHpBar(currentHP);
+        }
+    }
+
+    public void Dead()
+    {
+        Debug.Log("player dead and respawn");
     }
 
     /*

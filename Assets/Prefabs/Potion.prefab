@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6706457414215985392}
   - component: {fileID: -9024162966640530065}
   m_Layer: 0
-  m_Name: Daging
+  m_Name: Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  itemName: Daging
+  itemName: Potion
   value: 0
