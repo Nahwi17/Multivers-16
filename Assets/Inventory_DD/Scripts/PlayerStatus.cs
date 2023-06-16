@@ -11,6 +11,9 @@ public class PlayerStatus : MonoBehaviour
     public Slider hpSlider;
    // public float hpDecreaseRate = 1f; // Nilai pengurangan HP per detik
     public float currentHP;
+
+    public GameObject playerState;
+    public GameObject Player;
     //public float maxhealth;
     //header energy
     // public Slider energySlider;
