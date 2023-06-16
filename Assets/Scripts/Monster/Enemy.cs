@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     public GameObject dropItem;
     public int dropCount;
 
+    public HealthBar healthBar;
+    public int damage = 6;
+
     //damage ke player 
     GameObject playerStatus;
 
@@ -116,6 +119,8 @@ public class Enemy : MonoBehaviour
         SetupHpBar(currentHealth);
     }
 
+    
+
     void Die()
     {
         Debug.Log("enemy Died!");
@@ -143,6 +148,14 @@ public class Enemy : MonoBehaviour
     {
         GameObject tmpObject = Instantiate(dropItem);
         tmpObject.transform.position = this.transform.position;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+	    if (collision.gameObject.tag == "Player")
+	    {
+		    healthBar.TakeDamage(damage);
+	    }
     }
 
 }

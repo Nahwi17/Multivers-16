@@ -30,7 +30,7 @@ public class RespawnPlayer : MonoBehaviour
         //Player.transform.localPosition = Vector3.zero;
         controller.enabled = false;
         Player.transform.position = respawnPoint.transform.position;
-        PlayerStatus.Instance.currentHP = PlayerStatus.Instance.hp;
+        PlayerState.Instance.currentHealth = PlayerState.Instance.maxHealth;
         controller.enabled = true;
         Debug.Log("player respawn");
     }
