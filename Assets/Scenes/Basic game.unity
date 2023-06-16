@@ -12299,6 +12299,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7342502850698898276, guid: e65177ed3f6cd2342a4bbee55c975e60, type: 3}
+      propertyPath: m_Volume
+      value: 0.54
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e65177ed3f6cd2342a4bbee55c975e60, type: 3}
 --- !u!114 &449946612 stripped
@@ -22358,7 +22362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1 Meat '
+  m_text: 1 Potion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -50696,7 +50700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8650110322281150761, guid: 942e2a6f081607c4680a51a01c0750c2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8650110322542789042, guid: 942e2a6f081607c4680a51a01c0750c2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -56324,7 +56328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654240547}
-  m_LocalRotation: {x: -0.072718926, y: 0.92698234, z: -0.2476987, w: -0.27214178}
+  m_LocalRotation: {x: -0.07271894, y: 0.92698234, z: -0.2476987, w: -0.27214178}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -72153,7 +72157,7 @@ MonoBehaviour:
   m_text: Button
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
