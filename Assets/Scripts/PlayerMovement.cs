@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         // m_CharacterController = GetComponent<CharacterController>();
         // m_AudioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
