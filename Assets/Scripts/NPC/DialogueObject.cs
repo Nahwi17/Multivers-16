@@ -48,8 +48,8 @@ public class DialogueObject : MonoBehaviour
         else
         {
             rigid.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
             data.DialogueNumber = 0;
             currentDialogueNum = 0;
             data.questNumber = curDialogue.questNumber;

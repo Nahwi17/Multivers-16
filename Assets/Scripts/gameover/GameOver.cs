@@ -43,8 +43,8 @@ public class GameOver : MonoBehaviour
         gameOverUI.gameObject.SetActive(true);
         isGameOverUIShown = true;
 
-        // Cursor.lockState = CursorLockMode.None;
-        // Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void HideGameOverUI()
@@ -52,7 +52,7 @@ public class GameOver : MonoBehaviour
         gameOverUI.gameObject.SetActive(false);
         isGameOverUIShown = false;
 
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

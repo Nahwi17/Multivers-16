@@ -5,11 +5,14 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
 
+    public HealthBar healthBar;
     public bool playerInRange = false;
 
     int interval = 1;
     float nextTime = 0;
     public Collider demegenemy;
+
+    public int damage = 6;
 
    
 
@@ -23,10 +26,9 @@ public class EnemyCombat : MonoBehaviour
             //do something every interval seconds
             if (playerInRange)
             {
-                PlayerStatus.Instance.currentHP -= 6;
-                PlayerStatus.Instance.SetupHpBar(PlayerStatus.Instance.currentHP);
+                healthBar.TakeDamage(damage);
             }
-
+ 
             nextTime += interval;
         }
 

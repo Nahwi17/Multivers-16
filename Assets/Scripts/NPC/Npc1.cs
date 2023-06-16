@@ -39,7 +39,7 @@ public class Npc1 : MonoBehaviour
                     DialogueObject.SetActive(true);
                     rigid.enabled = false;
                     Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true; 
+                    //Cursor.visible = true; 
                     // triggerText.SetActive(false);
                     // other.gameObject.GetComponent<PlayerData>().questNumber  = 1 ;
                 // }

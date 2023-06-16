@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8125111914664601204}
+  - {fileID: 6168741865816830699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,6 +79,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: 
   item: {fileID: -9024162966640530065, guid: 801af5bdec2af394c8d1a64f8f09a9c1, type: 3}
+--- !u!1001 &5913647932001408256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8595273003878709436}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+      propertyPath: m_Name
+      value: Health Potion Bottle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+--- !u!4 &6168741865816830699 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e0289d1f592c354e8e5ea14e18fee62, type: 3}
+  m_PrefabInstance: {fileID: 5913647932001408256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8595273002933666207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +223,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 89bc498b1ebb86e4da6e35f8a603f60a, type: 3}
       propertyPath: m_Name
       value: Hunk_Of_Meat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89bc498b1ebb86e4da6e35f8a603f60a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89bc498b1ebb86e4da6e35f8a603f60a, type: 3}
